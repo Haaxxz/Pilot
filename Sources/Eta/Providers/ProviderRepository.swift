@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import GRDB
 
 public final class ProviderRepository {
     public static let shared = ProviderRepository()

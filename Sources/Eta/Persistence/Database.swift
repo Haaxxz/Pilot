@@ -9,9 +9,9 @@ public final class Database {
 
     public func setup(databaseURL: URL) throws {
         var configuration = Configuration()
-        configuration.prepareDatabase = { db in
-            try db.use(PRAGMA: "journal_mode = WAL")
-            try db.use(PRAGMA: "synchronous = NORMAL")
+        configuration.prepareDatabase { db in
+            try db.execute(sql: "PRAGMA journal_mode = WAL")
+            try db.execute(sql: "PRAGMA synchronous = NORMAL")
         }
         
         dbPool = try DatabasePool(path: databaseURL.path, configuration: configuration)

@@ -25,10 +25,9 @@ public class ProviderSSEReader {
         buffer += chunkString
         var events: [ServerSentEvent] = []
         
-        while let index = buffer.firstIndex(of: "\n\n") {
-            let nextIndex = buffer.index(index, offsetBy: 2)
-            let rawEvent = String(buffer[..<index])
-            buffer = String(buffer[nextIndex...])
+        while let range = buffer.range(of: "\n\n") {
+            let rawEvent = String(buffer[..<range.lowerBound])
+            buffer = String(buffer[range.upperBound...])
             
             if let event = parseEvent(rawEvent) {
                 events.append(event)

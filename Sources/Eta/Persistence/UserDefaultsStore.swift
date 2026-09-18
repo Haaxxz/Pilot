@@ -3,7 +3,7 @@ import Combine
 
 public final class UserDefaultsStore: ObservableObject {
     public static let shared = UserDefaultsStore()
-    private let defaults = UserDefaults.standard
+    public let defaults = UserDefaults.standard
     
     // Setting Keys
     public enum Keys {

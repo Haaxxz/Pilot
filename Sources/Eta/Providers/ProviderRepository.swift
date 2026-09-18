@@ -10,7 +10,7 @@ public final class ProviderRepository {
     public func providers() throws -> [ProviderSetting] {
         try Database.shared.dbPool.read { db in
             let entities = try ProviderEntity.order(Column("sort_order")).fetchAll(db)
-            return entities.map { entity in
+            return try entities.map { entity in
                 let models = try ProviderModelEntity.filter(Column("provider_id") == entity.id).order(Column("sort_order")).fetchAll(db)
                 return self.mapToDomain(entity: entity, models: models)
             }

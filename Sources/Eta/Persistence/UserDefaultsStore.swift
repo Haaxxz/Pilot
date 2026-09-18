@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-public final class UserDefaultsStore {
+public final class UserDefaultsStore: ObservableObject {
     public static let shared = UserDefaultsStore()
     private let defaults = UserDefaults.standard
     

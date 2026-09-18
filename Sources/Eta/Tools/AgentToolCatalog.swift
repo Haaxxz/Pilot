@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ToolDefinition: Codable {
-    public let type: String = "function"
+    public var type: String = "function"
     public let function: FunctionDefinition
     
     public struct FunctionDefinition: Codable {
@@ -11,7 +11,7 @@ public struct ToolDefinition: Codable {
     }
     
     public struct Parameters: Codable {
-        public let type: String = "object"
+        public var type: String = "object"
         public let properties: [String: Property]
         public let required: [String]?
     }

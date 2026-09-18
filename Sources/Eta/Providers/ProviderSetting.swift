@@ -51,6 +51,7 @@ public protocol ProviderSetting: Codable {
     var customBody: [CustomBody] { get }
     var createdAt: Int64 { get }
     var hostedWebSearchEnabled: Bool { get }
+    var models: [Model] { get }
 }
 
 public struct OpenAiCompatibleProviderSetting: ProviderSetting {
@@ -68,6 +69,7 @@ public struct OpenAiCompatibleProviderSetting: ProviderSetting {
     public var createdAt: Int64 = Int64(Date().timeIntervalSince1970 * 1000)
     public var endpointMode: String = OpenAiEndpointMode.chatCompletions
     public var hostedWebSearchEnabled: Bool = false
+    public var models: [Model] = []
 }
 
 public struct AnthropicProviderSetting: ProviderSetting {
@@ -87,6 +89,7 @@ public struct AnthropicProviderSetting: ProviderSetting {
     public var createdAt: Int64 = Int64(Date().timeIntervalSince1970 * 1000)
     public var anthropicVersion: String = defaultAnthropicVersion
     public var hostedWebSearchEnabled: Bool = false
+    public var models: [Model] = []
 }
 
 public struct CustomProviderSetting: ProviderSetting {
@@ -104,5 +107,6 @@ public struct CustomProviderSetting: ProviderSetting {
     public var createdAt: Int64 = Int64(Date().timeIntervalSince1970 * 1000)
     public var endpointMode: String = OpenAiEndpointMode.chatCompletions
     public var hostedWebSearchEnabled: Bool = false
+    public var models: [Model] = []
 }
 

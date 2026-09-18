@@ -22,6 +22,7 @@ targets:
         product: Markdown
     settings:
       base:
+        GENERATE_INFOPLIST_FILE: YES
         PRODUCT_BUNDLE_IDENTIFIER: io.github.mangi.eta
         DEVELOPMENT_TEAM: "" # To be filled in CI
         INFOPLIST_KEY_UILaunchScreen_Generation: YES

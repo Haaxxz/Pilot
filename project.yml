@@ -19,6 +19,7 @@ targets:
     dependencies:
       - package: GRDB
       - package: swift-markdown
+        product: Markdown
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.github.mangi.eta

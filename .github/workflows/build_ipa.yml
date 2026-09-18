@@ -30,6 +30,9 @@ jobs:
       - name: Generate Xcode Project
         run: xcodegen generate
 
+      - name: Resolve Packages
+        run: xcodebuild -resolvePackageDependencies -project Eta.xcodeproj -scheme Eta
+
       - name: Build Unsigned App
         run: |
           xcodebuild clean build \

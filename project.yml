@@ -1,0 +1,47 @@
+name: Eta
+options:
+  bundleIdPrefix: io.github.mangi
+  minimumXcodeGenVersion: 2.38.0
+packages:
+  GRDB:
+    url: https://github.com/groue/GRDB.swift.git
+    from: 6.27.0
+  swift-markdown:
+    url: https://github.com/apple/swift-markdown.git
+    branch: main
+targets:
+  Eta:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Sources/Eta
+    dependencies:
+      - package: GRDB
+      - package: swift-markdown
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.mangi.eta
+        DEVELOPMENT_TEAM: "" # To be filled in CI
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        MARKETING_VERSION: 3.0.4
+        CURRENT_PROJECT_VERSION: 2026091202
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+  EtaTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: EtaTests
+    dependencies:
+      - target: Eta
+  EtaUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: EtaUITests
+    dependencies:
+      - target: Eta
+
